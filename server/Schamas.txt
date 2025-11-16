@@ -1,0 +1,13 @@
+CREATE TABLE todos (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    priority VARCHAR(20),
+    completed BOOLEAN
+);
+CREATE TABLE subtodos (
+    id SERIAL PRIMARY KEY,
+    todo_id INT REFERENCES todos(id) ON DELETE CASCADE,
+    text VARCHAR(255) NOT NULL,
+    completed BOOLEAN
+);

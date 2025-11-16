@@ -1,0 +1,8 @@
+@import "tailwindcss";
+* {
+  user-select: none;
+}
+
+button {
+  cursor: pointer;
+}
