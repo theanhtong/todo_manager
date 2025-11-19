@@ -29,7 +29,7 @@ export default function Header() {
       </div>
       <button
         onClick={() => setIsOpenAddModal(!isOpenAddModal)}
-        className="w-10 h-10 flex justify-center items-center transition-colors duration-300 bg-[#a1bc98] rounded-full"
+        className="w-10 h-10 flex justify-center items-center transition-colors duration-300 bg-[#a1bc98] hover:bg-[#8daa85] rounded-full"
       >
         <Plus className="w-5 h-5 text-white" />
       </button>

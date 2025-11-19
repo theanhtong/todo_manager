@@ -7,6 +7,12 @@ export default function UpdateModal({ onClose, todo }) {
   const [description, setDescription] = useState(todo.description);
   const [subtodos, setSubtodos] = useState(todo.subtodos);
   const [priority, setPriority] = useState(todo.priority);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => onClose(), 100);
+  };
 
   const container = useRef(null);
 
@@ -47,7 +53,11 @@ export default function UpdateModal({ onClose, todo }) {
   };
 
   return (
-    <div className="break-inside-avoid w-[500px] flex flex-col gap-2 p-4 border border-[#778873] rounded-sm shadow-lg">
+    <div
+      className={`break-inside-avoid w-[500px] flex flex-col gap-2 p-4 border border-[#778873] rounded-sm shadow-lg ${
+        isClosing ? "animate-slide-up" : "animate-slide-down"
+      }`}
+    >
       <div className="flex flex-col justify-center items-center border-2 border-dashed border-[#d2dcb6] rounded-sm gap-2 p-4">
         <h3 className="text-xl font-bold text-[#778873]">Update Todo</h3>
         <p className="text-sm text-gray-500 italic">"Update your task details"</p>
@@ -110,7 +120,10 @@ export default function UpdateModal({ onClose, todo }) {
       </div>
 
       <div className="flex flex-row gap-2">
-        <button onClick={onClose} className="w-full px-2 py-1 rounded-sm shadow-lg bg-[#d2dcb6]">
+        <button
+          onClick={handleClose}
+          className="w-full px-2 py-1 rounded-sm shadow-lg bg-[#d2dcb6]"
+        >
           Cancel
         </button>
         <button

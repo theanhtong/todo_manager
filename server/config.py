@@ -1,6 +1,6 @@
 DB_CONFIG = {
-"host": "localhost",
+"host": "your_db_host",
 "database": "your_db_name",
-"user": "your_db_user",
+"user": "your_db_username",
 "password": "your_db_password"
 }

@@ -10,8 +10,17 @@ export default function TodoCard({ todo, onToggle }) {
   return (
     <div
       onContextMenu={(e) => e.preventDefault()}
-      className="break-inside-avoid w-full max-w-[350px] flex flex-col gap-4 p-4 border-2 border-[#778873] rounded-sm mb-2"
+      className="break-inside-avoid relative w-[350px] flex flex-col gap-4 p-4 border-2 border-[#778873] rounded-sm mb-2"
     >
+      {todo.completed && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <CheckCircle
+            className="w-30 h-30 transform -rotate-15 text-[#778873]/50 rounded-full shrink-0 cursor-pointer"
+            style={{ animation: "checked-in 0.3s forwards" }}
+          />
+        </div>
+      )}
+
       <div className="relative flex flex-row gap-6">
         <div
           className={`absolute w-2 h-2 top-0 right-0 rounded-full border-2  ${
@@ -23,7 +32,10 @@ export default function TodoCard({ todo, onToggle }) {
             <button className={`w-7 h-7 rounded-full shrink-0 border-2 border-[#778873]`}></button>
           )}
           {todo.completed && (
-            <CheckCircle className="w-7 h-7 text-[#778873] rounded-full shrink-0 cursor-pointer"></CheckCircle>
+            <CheckCircle
+              className="w-7 h-7 text-[#778873] rounded-full shrink-0 cursor-pointer"
+              style={{ animation: "checked-in 0.3s forwards" }}
+            ></CheckCircle>
           )}
         </div>
         <div
@@ -50,7 +62,10 @@ export default function TodoCard({ todo, onToggle }) {
                 ></button>
               )}
               {subtodo.completed && (
-                <CheckCircle className="w-5 h-5 text-[#778873] rounded-full shrink-0"></CheckCircle>
+                <CheckCircle
+                  className="w-5 h-5 text-[#778873] rounded-full shrink-0"
+                  style={{ animation: "checked-in 0.3s forwards" }}
+                ></CheckCircle>
               )}
             </div>
             <div className="flex flex-col gap-0.5 ">
